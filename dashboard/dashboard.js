@@ -1,246 +1,260 @@
-/* =====================================
-   BREAQ - DASHBOARD JS
+<!DOCTYPE html>
 
-   Funciones:
-   - Cargar nombre
-   - Estados emocionales
-   - Recuperar acompañamiento activo
-   - Navegación
+<html lang="es">
 
-===================================== */
 
+<head>
 
 
+<meta charset="UTF-8">
 
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-// =====================================
-// RECUPERAR ACOMPAÑAMIENTO ACTIVO
-// =====================================
 
+<title>BREAQ - Inicio</title>
 
-window.addEventListener(
 
-"load",
+<link rel="stylesheet" href="dashboard.css">
 
-function(){
 
+</head>
 
 
-let activo = localStorage.getItem(
 
-"acompanamientoActivo"
+<body>
 
-);
 
 
+<div class="app">
 
 
 
-let inicio = localStorage.getItem(
+<section class="dashboard">
 
-"inicioAcompanamiento"
 
-);
 
 
 
+<!-- =====================================
+     SALUDO
+===================================== -->
 
 
-let duracion = localStorage.getItem(
+<div class="saludo">
 
-"duracionAcompanamiento"
 
-);
+<h1>
 
+Hola, <span id="nombreUsuario">amigo</span>
 
+</h1>
 
 
+<p>
 
+Qué bueno verte hoy
 
+</p>
 
-if(
 
-activo === "true"
+</div>
 
-&&
 
-inicio
 
-&&
 
-duracion
 
-){
 
 
 
 
+<!-- =====================================
+     MASCOTA
+===================================== -->
 
-window.location.href =
 
-"../acompanamiento/acompanamiento.html";
+<div class="zona-mascota">
 
 
+<div class="circulo"></div>
 
 
 
-}
+<img
 
+src="../imagenes/mascota_sonriente.png"
 
+class="mascota"
 
-}
+alt="Mascota BREAQ"
 
-);
 
+>
 
 
+</div>
 
 
 
 
 
 
-// =====================================
-// CARGAR NOMBRE
-// =====================================
 
 
-let nombre = localStorage.getItem(
 
-"nombreUsuario"
+<!-- =====================================
+     ESTADO EMOCIONAL
+===================================== -->
 
-);
 
+<div class="tarjeta estado">
 
 
+<h2>
 
+¿Cómo te sientes hoy?
 
+</h2>
 
-if(nombre){
 
 
 
-let elementoNombre = document.getElementById(
+<div class="emociones">
 
-"nombreUsuario"
 
-);
 
+<button onclick="seleccionarEstado(this)">
 
+😊
 
+</button>
 
 
-if(elementoNombre){
 
+<button onclick="seleccionarEstado(this)">
 
+😌
 
-elementoNombre.textContent = nombre;
+</button>
 
 
 
-}
+<button onclick="seleccionarEstado(this)">
 
+😴
 
+</button>
 
-}
 
 
+<button onclick="seleccionarEstado(this)">
 
+🌸
 
+</button>
 
 
 
+</div>
 
 
+</div>
 
 
 
-// =====================================
-// ESTADO EMOCIONAL
-// =====================================
 
 
-function seleccionarEstado(boton){
 
 
 
 
+<!-- =====================================
+     EQUILIBRIO DIGITAL
+===================================== -->
 
-let botones = document.querySelectorAll(
 
-".emociones button"
+<div class="tarjeta equilibrio">
 
-);
 
+<h2>
 
+Tu equilibrio digital
 
+</h2>
 
 
 
-botones.forEach(function(item){
 
+<div class="dato">
 
 
-item.classList.remove(
+<span>
 
-"activo"
+Tiempo conectado
 
-);
+</span>
 
 
 
-});
+<strong>
 
+2h 30m
 
+</strong>
 
 
+</div>
 
 
 
-boton.classList.add(
 
-"activo"
 
-);
 
+<div class="dato">
 
 
+<span>
 
+Pausas realizadas
 
-}
+</span>
 
 
 
+<strong>
 
+4
 
+</strong>
 
 
+</div>
 
 
 
+</div>
 
 
 
-// =====================================
-// IR A ACOMPAÑAMIENTO
-// =====================================
 
 
-function irAcompanamiento(){
 
 
 
-window.location.href =
 
-"../duracion/duracion.html";
+<!-- =====================================
+     ACCIONES
+===================================== -->
 
 
+<div class="acciones">
 
-}
 
+<h2>
 
+¿Qué quieres hacer?
 
+</h2>
 
 
 
@@ -248,41 +262,101 @@ window.location.href =
 
 
 
+<!-- ACOMPAÑAMIENTO -->
 
-// =====================================
-// IR A PROCESO
-// =====================================
 
+<button
 
-function irProceso(){
+class="accion acompanamiento"
 
+onclick="irAcompanamiento()"
 
+>
 
-window.location.href =
 
-"../proceso/proceso.html";
+<span class="icono">
 
++
 
+</span>
 
-}
 
+<span>
 
+Acompañamiento
 
+</span>
 
 
 
+</button>
 
 
 
 
 
-// =====================================
-// CONECTAR HTML
-// =====================================
 
 
-window.irAcompanamiento = irAcompanamiento;
 
-window.irProceso = irProceso;
 
-window.seleccionarEstado = seleccionarEstado;
+<!-- PROCESO -->
+
+
+<button
+
+class="accion proceso"
+
+onclick="irProceso()"
+
+>
+
+
+<span class="icono">
+
+=
+
+</span>
+
+
+<span>
+
+Mirar mi proceso
+
+</span>
+
+
+
+</button>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+</section>
+
+
+
+</div>
+
+
+
+
+
+
+
+<script src="dashboard.js"></script>
+
+
+
+</body>
+
+
+</html>
