@@ -1,13 +1,15 @@
 /* =====================================
    BREAQ SERVICE WORKER
 
-   Permite que BREAQ funcione
-   como aplicación instalada
-
+   - PWA
+   - Cache
+   - Preparado para Push Notifications
 ===================================== */
 
 
-const CACHE_NAME = "breaq-v1";
+
+const CACHE_NAME = "breaq-v2";
+
 
 
 
@@ -19,8 +21,6 @@ const archivos = [
 
 
 
-// PORTADA
-
 "portada/index.html",
 
 "portada/portada.css",
@@ -28,9 +28,6 @@ const archivos = [
 "portada/portada.js",
 
 
-
-
-// DASHBOARD
 
 "dashboard/dashboard.html",
 
@@ -40,9 +37,6 @@ const archivos = [
 
 
 
-
-// ACOMPAÑAMIENTO
-
 "acompanamiento/acompanamiento.html",
 
 "acompanamiento/acompanamiento.css",
@@ -50,9 +44,6 @@ const archivos = [
 "acompanamiento/acompanamiento.js",
 
 
-
-
-// NOTIFICACIÓN
 
 "notificacion/notificacion.html",
 
@@ -62,9 +53,6 @@ const archivos = [
 
 
 
-
-// PAUSA
-
 "pausa/pausa.html",
 
 "pausa/pausa.css",
@@ -72,9 +60,6 @@ const archivos = [
 "pausa/pausa.js",
 
 
-
-
-// CONFIGURACIÓN
 
 "manifest.json"
 
@@ -87,10 +72,8 @@ const archivos = [
 
 
 
-
-
 // =====================================
-// INSTALAR APP
+// INSTALAR
 // =====================================
 
 
@@ -106,7 +89,7 @@ evento.waitUntil(
 
 caches.open(CACHE_NAME)
 
-.then(cache => {
+.then(cache=>{
 
 
 return cache.addAll(archivos);
@@ -132,6 +115,63 @@ return cache.addAll(archivos);
 
 
 // =====================================
+// ACTIVAR
+// =====================================
+
+
+self.addEventListener(
+
+"activate",
+
+evento=>{
+
+
+evento.waitUntil(
+
+caches.keys()
+
+.then(keys=>{
+
+
+return Promise.all(
+
+keys.map(key=>{
+
+
+if(key !== CACHE_NAME){
+
+
+return caches.delete(key);
+
+
+}
+
+
+})
+
+
+);
+
+
+})
+
+
+);
+
+
+}
+
+);
+
+
+
+
+
+
+
+
+
+// =====================================
 // CARGAR ARCHIVOS
 // =====================================
 
@@ -140,7 +180,7 @@ self.addEventListener(
 
 "fetch",
 
-evento => {
+evento=>{
 
 
 evento.respondWith(
@@ -148,7 +188,7 @@ evento.respondWith(
 
 caches.match(evento.request)
 
-.then(respuesta => {
+.then(respuesta=>{
 
 
 return respuesta || fetch(evento.request);
@@ -164,3 +204,78 @@ return respuesta || fetch(evento.request);
 }
 
 );
+
+
+
+
+
+
+
+
+
+// =====================================
+// FUTURAS NOTIFICACIONES PUSH
+// =====================================
+
+
+self.addEventListener(
+
+"push",
+
+evento=>{
+
+
+
+let datos = {
+
+
+titulo:"BREAQ",
+
+mensaje:"Recuerda tomar una pausa"
+
+};
+
+
+
+
+
+if(evento.data){
+
+
+datos = evento.data.json();
+
+
+}
+
+
+
+
+
+evento.waitUntil(
+
+
+
+self.registration.showNotification(
+
+datos.titulo,
+
+{
+
+body:datos.mensaje,
+
+icon:"imagenes/icono_breaq.png"
+
+
+}
+
+
+
+)
+
+
+
+);
+
+
+
+});
