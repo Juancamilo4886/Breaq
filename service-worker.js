@@ -7,7 +7,7 @@
 ===================================== */
 
 
-const CACHE_NAME = "breaq-v1";
+const CACHE_NAME = "breaq-v2";
 
 
 
