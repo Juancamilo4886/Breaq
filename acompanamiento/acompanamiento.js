@@ -36,25 +36,6 @@ let duracionGuardada = localStorage.getItem(
 
 
 
-// PRUEBA TEMPORAL
-
-alert(
-
-"Inicio guardado: "
-+
-inicioGuardado
-+
-"\n\nDuración guardada: "
-+
-duracionGuardada
-
-);
-
-
-
-
-
-
 actualizarInterfaz();
 
 
