@@ -16,6 +16,14 @@ from "../firebase-messaging.js";
 
 
 
+// PRUEBA DE CARGA
+
+alert("Duracion JS cargado");
+
+
+
+
+
 
 
 let tiempo = 1;
@@ -34,6 +42,8 @@ let tiempo = 1;
 
 
 function cambiarTiempo(direccion){
+
+
 
 
 
@@ -97,11 +107,22 @@ tiempo -= 5;
 
 
 
-document.getElementById(
+
+let texto = document.getElementById(
 
 "minutos"
 
-).textContent = tiempo;
+);
+
+
+
+if(texto){
+
+
+texto.textContent = tiempo;
+
+
+}
 
 
 
@@ -128,7 +149,7 @@ async function iniciarAcompanamiento(){
 
 alert(
 
-"Entró a iniciar acompañamiento"
+"Entró al botón comenzar"
 
 );
 
@@ -137,7 +158,8 @@ alert(
 
 
 
-// Guardar duración
+
+// Guardar tiempo elegido
 
 
 localStorage.setItem(
@@ -155,7 +177,7 @@ tiempo
 
 
 
-// Guardar inicio
+// Guardar momento de inicio
 
 
 localStorage.setItem(
@@ -173,7 +195,7 @@ Date.now()
 
 
 
-// Estado activo
+// Activar estado
 
 
 localStorage.setItem(
@@ -191,7 +213,9 @@ localStorage.setItem(
 
 
 
-// Activar Firebase
+
+
+// Firebase
 
 
 await activarNotificaciones();
@@ -201,13 +225,11 @@ await activarNotificaciones();
 
 
 
-
 alert(
 
-"Firebase terminó"
+"Firebase ejecutado"
 
 );
-
 
 
 
@@ -261,7 +283,7 @@ window.location.href =
 
 
 // =====================================
-// CONECTAR BOTONES HTML
+// HACER FUNCIONES VISIBLES AL HTML
 // =====================================
 
 
