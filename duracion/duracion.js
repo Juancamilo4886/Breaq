@@ -3,10 +3,26 @@
 
    - Selección de tiempo
    - Inicio acompañamiento
+   - Activación Firebase Notifications
 ===================================== */
 
 
+
+import { activarNotificaciones }
+
+from "../firebase-messaging.js";
+
+
+
+
+
+
+
 let tiempo = 1;
+
+
+
+
 
 
 
@@ -27,23 +43,33 @@ if(direccion === 1){
 
 
 
+
+
 // Si está en 1 pasa a 5
+
 
 if(tiempo === 1){
 
+
 tiempo = 5;
 
+
 }
+
 
 else{
 
+
 tiempo += 5;
 
+
+}
+
+
+
 }
 
 
-
-}
 
 
 
@@ -55,34 +81,55 @@ if(direccion === -1){
 
 
 
+
+
 // Si está en 5 vuelve a 1
+
 
 if(tiempo === 5){
 
+
 tiempo = 1;
 
+
 }
+
 
 else if(tiempo > 5){
 
+
 tiempo -= 5;
 
-}
-
-
 
 }
 
 
 
+}
 
 
 
-document.getElementById(
+
+
+
+
+let minutos = document.getElementById(
 
 "minutos"
 
-).textContent = tiempo;
+);
+
+
+
+
+
+if(minutos){
+
+
+minutos.textContent = tiempo;
+
+
+}
 
 
 
@@ -96,15 +143,20 @@ document.getElementById(
 
 
 
+
+
 // =====================================
-// INICIAR
+// INICIAR ACOMPAÑAMIENTO
 // =====================================
 
 
-function iniciarAcompanamiento(){
+async function iniciarAcompanamiento(){
 
 
 
+
+
+// Guardar duración elegida
 
 
 localStorage.setItem(
@@ -120,6 +172,10 @@ tiempo
 
 
 
+
+// Guardar inicio real
+
+
 localStorage.setItem(
 
 "inicioAcompanamiento",
@@ -131,6 +187,10 @@ Date.now()
 
 
 
+
+
+
+// Marcar sesión activa
 
 
 localStorage.setItem(
@@ -146,13 +206,36 @@ localStorage.setItem(
 
 
 
+
+
+
+// Activar Firebase
+
+
+await activarNotificaciones();
+
+
+
+
+
+
+
+
+
+// Entrar a acompañamiento
+
+
 window.location.href =
 
 "../acompanamiento/acompanamiento.html";
 
 
 
+
+
 }
+
+
 
 
 
@@ -187,6 +270,8 @@ window.location.href =
 
 
 
+
+
 // =====================================
 // CONEXIÓN BOTONES HTML
 // =====================================
@@ -194,6 +279,8 @@ window.location.href =
 
 window.cambiarTiempo = cambiarTiempo;
 
+
 window.iniciarAcompanamiento = iniciarAcompanamiento;
+
 
 window.volver = volver;
