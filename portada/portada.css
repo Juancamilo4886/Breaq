@@ -1,0 +1,620 @@
+/* ============================================
+   BREAQ - PORTADA CSS
+
+   Pantalla independiente:
+
+   Controla:
+   - Fondo
+   - Logo
+   - Mascota
+   - Círculo
+   - Estrellas
+   - Botón
+
+============================================ */
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600;800;900&family=Poppins:wght@800;900&display=swap');
+
+
+
+
+
+/* ============================================
+   CONFIGURACIÓN GENERAL
+============================================ */
+
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+
+
+
+body{
+
+
+    min-height:100vh;
+
+
+    background:#f8f0ed;
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+    font-family:'Nunito',sans-serif;
+
+
+}
+
+
+
+
+
+
+/* ============================================
+   CONTENEDOR TIPO CELULAR
+============================================ */
+
+
+.app{
+
+
+    width:390px;
+
+
+    height:844px;
+
+
+    background:#fffaf8;
+
+
+    border-radius:40px;
+
+
+    overflow:hidden;
+
+
+    box-shadow:
+
+    0 25px 60px rgba(0,0,0,.15);
+
+
+}
+
+
+
+
+
+
+
+/* ============================================
+   PORTADA COMPLETA
+============================================ */
+
+
+.portada{
+
+
+    width:100%;
+
+
+    height:100%;
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
+    align-items:center;
+
+
+    justify-content:space-between;
+
+
+    padding:50px 30px 35px;
+
+
+}
+
+
+
+
+
+
+
+/* ============================================
+   LOGO BREAQ
+============================================ */
+
+
+.logo{
+
+
+    text-align:center;
+
+
+}
+
+
+
+
+.logo h1{
+
+
+    font-family:'Poppins',sans-serif;
+
+
+    font-size:60px;
+
+
+    font-weight:900;
+
+
+    letter-spacing:2px;
+
+
+    color:#aa3f74;
+
+
+}
+
+
+
+
+
+.logo p{
+
+
+    margin-top:15px;
+
+
+    color:#746984;
+
+
+    font-size:18px;
+
+
+    line-height:1.4;
+
+
+    font-weight:600;
+
+
+}
+
+
+
+
+
+
+
+
+/* ============================================
+   ZONA DE ILUSTRACIÓN
+
+   Aquí vive:
+   - círculo
+   - estrellas
+   - mascota
+
+============================================ */
+
+
+.zona-mascota{
+
+
+    position:relative;
+
+
+    width:100%;
+
+
+    height:400px;
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+}
+
+
+
+
+
+
+
+
+/* ============================================
+   CÍRCULO ROSADO
+
+   Más pequeño para dejar
+   espacio a decoración
+
+============================================ */
+
+
+.circulo{
+
+
+    position:absolute;
+
+
+    width:320px;
+
+
+    height:320px;
+
+
+    border-radius:50%;
+
+
+    background:#f3dbe5;
+
+
+    z-index:1;
+
+
+}
+
+
+
+
+
+
+
+/* ============================================
+   MASCOTA PRINCIPAL
+
+   Centrada visualmente
+
+============================================ */
+
+
+.mascota{
+
+
+    width:285px;
+
+
+    position:relative;
+
+
+    z-index:2;
+
+
+    display:block;
+
+
+    margin:auto;
+
+
+    left:-18px;
+
+
+    animation:
+
+    flotar 3s infinite ease-in-out;
+
+
+}
+
+
+
+
+
+
+/* ============================================
+   ESTRELLAS DECORATIVAS
+
+   Rodean el círculo
+
+============================================ */
+
+
+.estrella{
+
+
+    position:absolute;
+
+
+    z-index:3;
+
+
+    color:#efbfd4;
+
+
+    font-size:32px;
+
+
+    animation:
+
+    brillo 2.5s infinite;
+
+
+}
+
+
+
+
+
+
+/* Arriba izquierda */
+
+.e1{
+
+
+    top:55px;
+
+
+    left:35px;
+
+
+}
+
+
+
+
+
+/* Arriba derecha */
+
+.e2{
+
+
+    top:65px;
+
+
+    right:35px;
+
+
+}
+
+
+
+
+
+/* Medio izquierda */
+
+.e3{
+
+    top:190px;
+
+    left:-8px;
+
+    font-size:22px;
+
+}
+
+
+
+/* Medio derecha */
+
+.e4{
+
+    top:210px;
+
+    right:-8px;
+
+    font-size:22px;
+
+}
+
+
+
+
+
+/* Abajo izquierda */
+
+.e5{
+
+
+    bottom:55px;
+
+
+    left:65px;
+
+
+}
+
+
+
+
+
+/* Abajo derecha */
+
+.e6{
+
+
+    bottom:40px;
+
+
+    right:65px;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ============================================
+   TEXTO INFERIOR
+============================================ */
+
+
+.mensaje{
+
+
+    color:#806e8d;
+
+
+    font-size:18px;
+
+
+    text-align:center;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ============================================
+   BOTÓN PRINCIPAL
+============================================ */
+
+
+.boton{
+
+
+    width:100%;
+
+
+    padding:18px;
+
+
+    border:none;
+
+
+    border-radius:40px;
+
+
+    background:#aa3f74;
+
+
+    color:white;
+
+
+    font-size:19px;
+
+
+    font-weight:900;
+
+
+    cursor:pointer;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+
+.boton:hover{
+
+
+    transform:translateY(-3px);
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ============================================
+   ANIMACIÓN MASCOTA
+============================================ */
+
+
+@keyframes flotar{
+
+
+    0%,100%{
+
+
+        transform:translateY(0);
+
+
+    }
+
+
+    50%{
+
+
+        transform:translateY(-10px);
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+/* ============================================
+   ANIMACIÓN ESTRELLAS
+============================================ */
+
+
+@keyframes brillo{
+
+
+    0%,100%{
+
+
+        opacity:.5;
+
+
+        transform:scale(.9);
+
+
+    }
+
+
+    50%{
+
+
+        opacity:1;
+
+
+        transform:scale(1.15);
+
+
+    }
+
+
+}
