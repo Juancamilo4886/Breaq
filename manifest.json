@@ -3,7 +3,7 @@
   "short_name": "BREAQ",
   "description": "Tu compañero digital para encontrar equilibrio",
   
-  "start_url": "portada/index.html",
+  "start_url": "./dashboard/dashboard.html",
 
   "display": "standalone",
 
