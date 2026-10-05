@@ -8,9 +8,6 @@
 
 
 
-import { activarNotificaciones }
-
-from "../firebase-messaging.js";
 
 
 
