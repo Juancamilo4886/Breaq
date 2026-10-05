@@ -1,0 +1,539 @@
+/* ============================================
+   BREAQ - PANTALLA MODOS
+
+   Pantalla independiente:
+
+   Contiene:
+   - Título
+   - Tarjetas de selección
+   - Mascotas
+   - Botones
+   - Animaciones
+
+============================================ */
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600;800;900&family=Poppins:wght@800;900&display=swap');
+
+
+
+
+
+/* ============================================
+   CONFIGURACIÓN GENERAL
+============================================ */
+
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+
+
+
+
+body{
+
+
+    min-height:100vh;
+
+
+    background:#f8f0ed;
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+    font-family:'Nunito',sans-serif;
+
+
+}
+
+
+
+
+
+
+
+/* ============================================
+   CONTENEDOR CELULAR
+============================================ */
+
+
+.app{
+
+
+    width:390px;
+
+
+    height:844px;
+
+
+    background:#fffaf8;
+
+
+    border-radius:40px;
+
+
+    overflow:hidden;
+
+
+    box-shadow:
+
+    0 25px 60px rgba(0,0,0,.15);
+
+
+}
+
+
+
+
+
+
+
+/* ============================================
+   PANTALLA MODOS
+============================================ */
+
+
+.modos{
+
+
+    width:100%;
+
+
+    height:100%;
+
+
+    padding:45px 25px;
+
+
+}
+
+
+
+
+
+
+
+
+/* ============================================
+   ENCABEZADO
+============================================ */
+
+
+.encabezado{
+
+
+    text-align:center;
+
+
+}
+
+
+
+.encabezado h1{
+
+
+    font-family:'Poppins',sans-serif;
+
+
+    font-size:28px;
+
+
+    color:#24203d;
+
+
+    line-height:1.2;
+
+
+}
+
+
+
+.encabezado p{
+
+
+    margin-top:12px;
+
+
+    color:#80758e;
+
+
+    font-size:16px;
+
+
+}
+
+
+
+
+
+
+
+
+/* ============================================
+   TARJETAS
+============================================ */
+
+
+.tarjeta{
+
+
+    margin-top:30px;
+
+
+    height:200px;
+
+
+    border-radius:32px;
+
+
+    padding:22px;
+
+
+    display:flex;
+
+
+    justify-content:space-between;
+
+
+    align-items:center;
+
+
+    cursor:pointer;
+
+
+    transition:.3s;
+
+
+    overflow:hidden;
+
+
+}
+
+
+
+
+
+/* Efecto al pasar mouse */
+
+
+.tarjeta:hover{
+
+
+    transform:translateY(-6px);
+
+
+    box-shadow:
+
+    0 15px 30px rgba(0,0,0,.12);
+
+
+}
+
+
+
+
+
+/* Efecto al tocar */
+
+
+.tarjeta:active{
+
+
+    transform:scale(.97);
+
+
+}
+
+
+
+
+
+
+
+/* ============================================
+   COLORES DE TARJETAS
+============================================ */
+
+
+.pausa{
+
+
+    background:#f7dfe8;
+
+
+}
+
+
+
+.consciente{
+
+
+    background:#e7ddf6;
+
+
+}
+
+
+
+
+
+
+
+/* ============================================
+   TEXTO
+============================================ */
+
+
+.texto{
+
+
+    width:58%;
+
+
+}
+
+
+
+.texto h2{
+
+
+    font-family:'Poppins',sans-serif;
+
+
+    color:#42213d;
+
+
+    font-size:22px;
+
+
+    line-height:1.2;
+
+
+}
+
+
+
+.texto p{
+
+
+    margin-top:12px;
+
+
+    color:#726981;
+
+
+    line-height:1.4;
+
+
+    font-size:15px;
+
+
+}
+
+
+
+
+
+
+
+/* ============================================
+   CONTENEDOR IMAGEN + FLECHA
+
+   Movido hacia la derecha
+   para parecerse a referencia
+
+============================================ */
+
+
+.lado-imagen{
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
+    align-items:center;
+
+
+    gap:15px;
+
+
+    transform:translateX(18px);
+
+
+}
+
+
+
+
+
+
+
+/* ============================================
+   MASCOTA DENTRO DE TARJETA
+============================================ */
+
+
+.mascota-modo{
+
+
+    width:90px;
+
+
+    animation:
+
+    flotar 3s infinite ease-in-out;
+
+
+}
+
+
+
+
+
+
+
+
+/* ============================================
+   BOTÓN FLECHA
+
+   Estilo circular moderno
+
+============================================ */
+
+
+.flecha{
+
+
+    width:52px;
+
+
+    height:52px;
+
+
+    border-radius:50%;
+
+
+    border:none;
+
+
+    background:#4d3c78;
+
+
+    color:white;
+
+
+    font-size:42px;
+
+
+    font-family:Arial,sans-serif;
+
+
+    font-weight:300;
+
+
+    line-height:1;
+
+
+    padding-bottom:8px;
+
+
+    cursor:pointer;
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+    box-shadow:
+
+    0 10px 20px rgba(77,60,120,.25);
+
+
+    transition:.25s;
+
+
+}
+
+
+
+
+
+
+.flecha:hover{
+
+
+    transform:
+
+    scale(1.12)
+
+    translateX(3px);
+
+
+    background:#3e3065;
+
+
+    box-shadow:
+
+    0 14px 25px rgba(77,60,120,.35);
+
+
+}
+
+
+
+
+
+
+
+
+/* ============================================
+   ANIMACIÓN MASCOTAS
+============================================ */
+
+
+@keyframes flotar{
+
+
+    0%,100%{
+
+
+        transform:translateY(0);
+
+
+    }
+
+
+    50%{
+
+
+        transform:translateY(-8px);
+
+
+    }
+
+
+}
