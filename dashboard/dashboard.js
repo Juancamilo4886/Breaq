@@ -4,9 +4,98 @@
    Funciones:
    - Cargar nombre
    - Estados emocionales
+   - Recuperar acompañamiento activo
    - Navegación
 
 ===================================== */
+
+
+
+
+
+
+// =====================================
+// RECUPERAR ACOMPAÑAMIENTO ACTIVO
+// =====================================
+
+
+window.addEventListener(
+
+"load",
+
+function(){
+
+
+
+let activo = localStorage.getItem(
+
+"acompanamientoActivo"
+
+);
+
+
+
+
+
+let inicio = localStorage.getItem(
+
+"inicioAcompanamiento"
+
+);
+
+
+
+
+
+let duracion = localStorage.getItem(
+
+"duracionAcompanamiento"
+
+);
+
+
+
+
+
+
+
+if(
+
+activo === "true"
+
+&&
+
+inicio
+
+&&
+
+duracion
+
+){
+
+
+
+
+
+window.location.href =
+
+"../acompanamiento/acompanamiento.html";
+
+
+
+
+
+}
+
+
+
+}
+
+);
+
+
+
+
 
 
 
@@ -26,17 +115,38 @@ let nombre = localStorage.getItem(
 
 
 
+
+
 if(nombre){
 
 
-document.getElementById(
+
+let elementoNombre = document.getElementById(
 
 "nombreUsuario"
 
-).textContent = nombre;
+);
+
+
+
+
+
+if(elementoNombre){
+
+
+
+elementoNombre.textContent = nombre;
+
 
 
 }
+
+
+
+}
+
+
+
 
 
 
@@ -55,6 +165,8 @@ function seleccionarEstado(boton){
 
 
 
+
+
 let botones = document.querySelectorAll(
 
 ".emociones button"
@@ -64,7 +176,10 @@ let botones = document.querySelectorAll(
 
 
 
+
+
 botones.forEach(function(item){
+
 
 
 item.classList.remove(
@@ -74,7 +189,10 @@ item.classList.remove(
 );
 
 
+
 });
+
+
 
 
 
@@ -88,7 +206,13 @@ boton.classList.add(
 
 
 
+
+
 }
+
+
+
+
 
 
 
@@ -105,10 +229,17 @@ boton.classList.add(
 
 function irAcompanamiento(){
 
+
+
 window.location.href =
+
 "../duracion/duracion.html";
 
+
+
 }
+
+
 
 
 
@@ -126,9 +257,32 @@ window.location.href =
 function irProceso(){
 
 
+
 window.location.href =
 
 "../proceso/proceso.html";
 
 
+
 }
+
+
+
+
+
+
+
+
+
+
+
+// =====================================
+// CONECTAR HTML
+// =====================================
+
+
+window.irAcompanamiento = irAcompanamiento;
+
+window.irProceso = irProceso;
+
+window.seleccionarEstado = seleccionarEstado;
