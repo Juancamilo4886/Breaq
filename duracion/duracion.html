@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>BREAQ - Tiempo</title>
+
+
+<link rel="stylesheet" href="duracion.css">
+
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+<section class="duracion">
+
+
+
+<!-- ENCABEZADO -->
+
+<div class="header">
+
+
+<button onclick="volver()">
+
+‹
+
+</button>
+
+
+<div>
+
+<h1>
+
+Acompañamiento
+
+</h1>
+
+
+<p>
+
+Configura tu momento
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- MASCOTA -->
+
+
+<div class="zona-mascota">
+
+
+<div class="circulo"></div>
+
+
+<img
+
+src="../imagenes/mascota_sonriente.png"
+
+class="mascota"
+
+alt="Mascota BREAQ"
+
+>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<h2>
+
+¿Cuánto tiempo quieres estar acompañado?
+
+</h2>
+
+
+<p class="descripcion">
+
+Elige la duración de tu espacio personal
+
+</p>
+
+
+
+
+
+
+
+<!-- SELECTOR -->
+
+
+<div class="selector">
+
+
+
+<button onclick="cambiarTiempo(-1)">
+
+−
+
+</button>
+
+
+
+
+
+<div class="tiempo">
+
+
+<span id="minutos">
+
+1
+
+</span>
+
+
+<p>
+
+minutos
+
+</p>
+
+
+</div>
+
+
+
+
+
+<button onclick="cambiarTiempo(1)">
+
++
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+<button
+
+class="boton"
+
+onclick="iniciarAcompanamiento()"
+
+>
+
+Comenzar acompañamiento
+
+</button>
+
+
+
+
+
+<p class="mensaje">
+
+Puedes modificar el tiempo cuando quieras
+
+</p>
+
+
+
+</section>
+
+
+</div>
+
+
+
+
+
+
+
+<script type="module" src="duracion.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+
+<head>
+
+
+    <!-- =====================================
+         CONFIGURACIÓN PERFIL BREAQ
+    ====================================== -->
+
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>BREAQ - Perfil</title>
+
+
+    <link rel="stylesheet" href="perfil.css">
+
+
+</head>
+
+
+
+<body>
+
+
+
+<div class="app">
+
+
+
+<section class="perfil">
+
+
+
+
+
+    <!-- =====================================
+         MASCOTA
+    ====================================== -->
+
+
+    <img
+
+    src="../imagenes/mascota_sonriente.png"
+
+    class="mascota-perfil"
+
+    alt="Mascota BREAQ"
+
+    >
+
+
+
+
+
+
+
+
+
+    <!-- =====================================
+         TITULO
+    ====================================== -->
+
+
+    <h1>
+
+        Cuéntame de ti
+
+    </h1>
+
+
+
+    <p class="descripcion">
+
+        Queremos conocerte un poco mejor
+        para acompañarte.
+
+    </p>
+
+
+
+
+
+
+
+
+
+    <!-- =====================================
+         NOMBRE
+    ====================================== -->
+
+
+    <div class="bloque">
+
+
+        <label>
+
+            ¿Cómo te llamas?
+
+        </label>
+
+
+
+        <input
+
+        id="nombre"
+
+        type="text"
+
+        placeholder="Escribe tu nombre..."
+
+        oninput="quitarErrorNombre()"
+
+        >
+
+
+
+
+        <!-- Mensaje de error interno -->
+
+        <p id="errorNombre" class="error-nombre">
+
+            Pon tu nombre por favor
+
+        </p>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- =====================================
+         MOMENTO DEL DÍA
+    ====================================== -->
+
+
+    <div class="bloque">
+
+
+        <h3>
+
+            ¿Cuándo usas más tu celular?
+
+        </h3>
+
+
+
+
+        <div class="opciones">
+
+
+
+            <button onclick="seleccionar(this)">
+
+                🌅
+
+                <span>
+
+                    Mañana
+
+                </span>
+
+
+            </button>
+
+
+
+
+
+            <button onclick="seleccionar(this)">
+
+                ☀️
+
+                <span>
+
+                    Tarde
+
+                </span>
+
+
+            </button>
+
+
+
+
+
+            <button onclick="seleccionar(this)">
+
+                🌙
+
+                <span>
+
+                    Noche
+
+                </span>
+
+
+            </button>
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- =====================================
+         OBJETIVOS
+    ====================================== -->
+
+
+    <div class="bloque">
+
+
+        <h3>
+
+            ¿Qué quieres mejorar?
+
+        </h3>
+
+
+
+        <div class="objetivos">
+
+
+
+            <button onclick="seleccionar(this)">
+
+                🌸 Pausas durante el día
+
+            </button>
+
+
+
+
+            <button onclick="seleccionar(this)">
+
+                🌙 Mejor descanso
+
+            </button>
+
+
+
+
+            <button onclick="seleccionar(this)">
+
+                ✨ Uso equilibrado
+
+            </button>
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- =====================================
+         CONTINUAR
+    ====================================== -->
+
+
+    <button
+
+    class="continuar"
+
+    onclick="guardarPerfil()"
+
+    >
+
+        Continuar
+
+    </button>
+
+
+
+
+
+</section>
+
+
+
+
+</div>
+
+
+
+
+
+
+<script src="perfil.js"></script>
+
+
+</body>
+
+
+</html>
