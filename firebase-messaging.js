@@ -17,8 +17,6 @@ from "https://www.gstatic.com/firebasejs/12.19.0/firebase-messaging.js";
 
 
 
-
-
 const vapidKey =
 
 "BBxnlmJSagngSmj_OKQlBPEF6NwkJIEAyo-j6dKV8ZqIF6PWA3_x0a8scDeYoUAVyWCiW5Qrlm74rbY8VluuoSw";
@@ -39,6 +37,9 @@ const vapidKey =
 export async function activarNotificaciones(){
 
 
+console.log("Firebase iniciado");
+
+
 
 try{
 
@@ -46,7 +47,7 @@ try{
 
 
 
-// Registrar Service Worker Firebase
+// Registrar Service Worker
 
 
 const registration = await navigator.serviceWorker.register(
@@ -54,8 +55,6 @@ const registration = await navigator.serviceWorker.register(
 "/Breaq/firebase-messaging-sw.js"
 
 );
-
-
 
 
 
@@ -85,22 +84,30 @@ const permiso = await Notification.requestPermission();
 
 
 
-
-
-if(permiso !== "granted"){
-
-
-
 console.log(
 
-"Permiso de notificaciones rechazado"
+"Permiso:",
+permiso
 
 );
 
 
 
-return;
 
+
+
+
+if(permiso !== "granted"){
+
+
+console.log(
+
+"Permiso rechazado"
+
+);
+
+
+return;
 
 
 }
@@ -113,7 +120,17 @@ return;
 
 
 
-// Obtener token Firebase
+// Obtener token
+
+
+console.log(
+
+"Solicitando token..."
+
+);
+
+
+
 
 
 const token = await getToken(
@@ -138,6 +155,19 @@ serviceWorkerRegistration: registration
 
 
 
+
+console.log(
+
+"PASO TOKEN"
+
+);
+
+
+
+
+
+
+
 if(token){
 
 
@@ -149,9 +179,6 @@ console.log(
 token
 
 );
-
-
-
 
 
 
@@ -171,7 +198,6 @@ token
 else{
 
 
-
 console.log(
 
 "No se pudo generar token"
@@ -181,8 +207,6 @@ console.log(
 
 
 }
-
-
 
 
 
