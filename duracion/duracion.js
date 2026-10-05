@@ -7,24 +7,13 @@
 ===================================== */
 
 
+import { activarNotificaciones }
 
-
-
-
-
-
-// PRUEBA DE CARGA
-
-alert("Duracion JS cargado");
-
-
-
-
+from "../firebase-messaging.js";
 
 
 
 let tiempo = 1;
-
 
 
 
