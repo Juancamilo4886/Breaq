@@ -3,7 +3,7 @@
 
    - Selección de tiempo
    - Inicio acompañamiento
-   - Activación Firebase Notifications
+   - Firebase Notifications
 ===================================== */
 
 
@@ -37,15 +37,8 @@ function cambiarTiempo(direccion){
 
 
 
-
-
 if(direccion === 1){
 
-
-
-
-
-// Si está en 1 pasa a 5
 
 
 if(tiempo === 1){
@@ -55,7 +48,6 @@ tiempo = 5;
 
 
 }
-
 
 else{
 
@@ -75,15 +67,8 @@ tiempo += 5;
 
 
 
-
-
 if(direccion === -1){
 
-
-
-
-
-// Si está en 5 vuelve a 1
 
 
 if(tiempo === 5){
@@ -93,7 +78,6 @@ tiempo = 1;
 
 
 }
-
 
 else if(tiempo > 5){
 
@@ -113,23 +97,11 @@ tiempo -= 5;
 
 
 
-let minutos = document.getElementById(
+document.getElementById(
 
 "minutos"
 
-);
-
-
-
-
-
-if(minutos){
-
-
-minutos.textContent = tiempo;
-
-
-}
+).textContent = tiempo;
 
 
 
@@ -154,9 +126,18 @@ async function iniciarAcompanamiento(){
 
 
 
+alert(
+
+"Entró a iniciar acompañamiento"
+
+);
 
 
-// Guardar duración elegida
+
+
+
+
+// Guardar duración
 
 
 localStorage.setItem(
@@ -173,7 +154,8 @@ tiempo
 
 
 
-// Guardar inicio real
+
+// Guardar inicio
 
 
 localStorage.setItem(
@@ -190,7 +172,8 @@ Date.now()
 
 
 
-// Marcar sesión activa
+
+// Estado activo
 
 
 localStorage.setItem(
@@ -200,7 +183,6 @@ localStorage.setItem(
 "true"
 
 );
-
 
 
 
@@ -220,16 +202,22 @@ await activarNotificaciones();
 
 
 
+alert(
+
+"Firebase terminó"
+
+);
 
 
-// Entrar a acompañamiento
+
+
+
+
 
 
 window.location.href =
 
 "../acompanamiento/acompanamiento.html";
-
-
 
 
 
@@ -273,7 +261,7 @@ window.location.href =
 
 
 // =====================================
-// CONEXIÓN BOTONES HTML
+// CONECTAR BOTONES HTML
 // =====================================
 
 
