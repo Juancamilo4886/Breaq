@@ -4,12 +4,12 @@
    Funciones:
    - Cuenta duración elegida
    - Mantiene sesión activa
-   - Continúa al volver a la app
-   - Envía a notificación
+   - Detecta regreso de la app
 ===================================== */
 
 
 let intervalo = null;
+
 
 
 
@@ -23,10 +23,43 @@ let intervalo = null;
 window.onload = function(){
 
 
+
+let inicioGuardado = localStorage.getItem(
+"inicioAcompanamiento"
+);
+
+
+
+let duracionGuardada = localStorage.getItem(
+"duracionAcompanamiento"
+);
+
+
+
+// PRUEBA TEMPORAL
+
+alert(
+
+"Inicio guardado: "
++
+inicioGuardado
++
+"\n\nDuración guardada: "
++
+duracionGuardada
+
+);
+
+
+
+
+
+
 actualizarInterfaz();
 
 
 actualizarTiempo();
+
 
 
 
@@ -40,7 +73,12 @@ actualizarTiempo,
 );
 
 
+
 };
+
+
+
+
 
 
 
@@ -88,6 +126,7 @@ actualizarTiempo();
 
 
 
+
 // =====================================
 // INTERFAZ ACTIVA
 // =====================================
@@ -123,11 +162,12 @@ let boton = document.getElementById(
 
 
 
-
 if(punto){
 
 
+
 punto.textContent = "●";
+
 
 
 }
@@ -139,7 +179,9 @@ punto.textContent = "●";
 if(texto){
 
 
+
 texto.textContent = "Activo";
+
 
 
 }
@@ -151,14 +193,17 @@ texto.textContent = "Activo";
 if(boton){
 
 
+
 boton.textContent = "Finalizar acompañamiento";
 
 
-}
-
-
 
 }
+
+
+
+}
+
 
 
 
@@ -209,10 +254,13 @@ localStorage.getItem(
 
 
 
+
 if(!inicio || !duracion){
 
 
+
 return;
+
 
 
 }
@@ -225,9 +273,6 @@ return;
 
 
 
-// Convertir minutos a segundos
-
-
 let limite = duracion * 60;
 
 
@@ -236,12 +281,8 @@ let limite = duracion * 60;
 
 
 
-
-
-// Tiempo real transcurrido
-
-
 let diferencia = Date.now() - inicio;
+
 
 
 
@@ -253,7 +294,6 @@ let segundos = Math.floor(
 diferencia / 1000
 
 );
-
 
 
 
@@ -281,6 +321,7 @@ let segundosMostrar = segundos % 60;
 
 
 
+
 let tiempo =
 
 
@@ -300,13 +341,12 @@ segundosMostrar;
 
 
 
-
-
 let contador = document.getElementById(
 
 "contador"
 
 );
+
 
 
 
@@ -333,7 +373,7 @@ contador.textContent = tiempo;
 
 
 
-// TERMINÓ EL TIEMPO
+// FINAL DEL TIEMPO
 
 
 if(segundos >= limite){
@@ -341,7 +381,6 @@ if(segundos >= limite){
 
 
 clearInterval(intervalo);
-
 
 
 
@@ -371,6 +410,8 @@ window.location.href =
 
 
 }
+
+
 
 
 
@@ -427,6 +468,7 @@ localStorage.removeItem(
 "tiempoConexion"
 
 );
+
 
 
 
